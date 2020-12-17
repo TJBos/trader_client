@@ -1,6 +1,8 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
+//make a nice autocomplete form out of this!!
+
 const Search = () => {
   const api_url =
     "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=BA&apikey=4IXJY1MI0KBS3R8P";
