@@ -1,0 +1,18 @@
+.form-container {
+  margin: 50px auto;
+  width: 350px;
+  height: 350px;
+  -moz-box-shadow: 0 0 3px #ccc;
+  -webkit-box-shadow: 0 0 3px #ccc;
+  box-shadow: 0 0 10px #ccc;
+  padding: 50px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.form-control {
+  border: none;
+  border-bottom: solid;
+  border-radius: 0px;
+  margin: 20px 0px;
+}
