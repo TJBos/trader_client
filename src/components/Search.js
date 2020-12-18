@@ -1,34 +1,43 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+const { API_KEY } = process.env;
 
 //make a nice autocomplete form out of this!!
 
-const Search = () => {
+const Search = (props) => {
   const api_url =
     "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=BA&apikey=4IXJY1MI0KBS3R8P";
 
-  const [formData, setFormData] = React.useState({ search: "" });
+  const [formData, setFormData] = React.useState("");
   const [results, setResults] = React.useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(
-      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${formData.search}&apikey=${env.API_KEY}`
-    )
-      .then((response) => response.json())
-      .then((data) => setResults(data));
+    props.history.push("/show");
   };
 
   const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+    setFormData(event.target.value);
+    const keyword = event.target.value;
+    fetch(
+      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => setResults(data.bestMatches));
   };
 
   const displayResults = (list) => {
-    return list.bestMatches.map((item) => (
-      <li>
-        {item["1. symbol"]} ---- {item["2. name"]}
-      </li>
-    ));
+    return list.map((item) => {
+      const descript = `${item["1. symbol"]} - ${item["2. name"]}`;
+      return (
+        <div
+          style={{ border: "black 1px solid" }}
+          onClick={() => setFormData(descript)}
+        >
+          {descript}
+        </div>
+      );
+    });
   };
 
   return (
@@ -40,7 +49,7 @@ const Search = () => {
             type="text"
             placeholder="Enter search term"
             name="search"
-            value={formData.search}
+            value={formData}
             onChange={handleChange}
           />
         </Form.Group>

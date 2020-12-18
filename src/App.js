@@ -21,29 +21,8 @@ function App() {
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
           <Route exact path="/" render={(rp) => <Search {...rp} />} />
-          <Route
-            exact
-            path="/calendar"
-            render={(rp) => (
-              <CalendarView
-                {...rp}
-                entries={entries}
-                selectEntry={selectEntry}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/show"
-            render={(rp) => (
-              <Show
-                {...rp}
-                entry={selectedEntry}
-                selectEntry={selectEntry}
-                deleteEntry={deleteEntry}
-              />
-            )}
-          />
+
+          <Route exact path="/show" render={(rp) => <Show {...rp} />} />
         </Switch>
       </main>
     </div>
