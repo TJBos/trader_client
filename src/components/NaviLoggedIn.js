@@ -28,8 +28,8 @@ const NaviLoggedIn = ({ history }) => {
               <Nav.Link
                 href="/"
                 onClick={() => {
-                  window.localStorage.removeItem("token");
-                  setgState({ ...gState, token: false, user: null });
+                  //window.localStorage.removeItem("token");
+                  //setgState({ ...gState, token: false, user: null });
                 }}
               >
                 Logout
