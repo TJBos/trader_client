@@ -12,8 +12,12 @@ const Search = (props) => {
   const [results, setResults] = React.useState();
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    props.history.push("/show");
+    if (props.selectedEquity) {
+      event.preventDefault();
+      props.history.push("/show");
+    } else {
+      alert("Please select a ticker from the list");
+    }
   };
 
   const handleChange = (event) => {
@@ -32,7 +36,10 @@ const Search = (props) => {
       return (
         <div
           style={{ border: "black 1px solid" }}
-          onClick={() => setFormData(descript)}
+          onClick={() => {
+            setFormData(descript);
+            props.selectEquity(item["1. symbol"]);
+          }}
         >
           {descript}
         </div>

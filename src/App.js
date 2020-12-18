@@ -1,28 +1,44 @@
 import "./App.css";
 import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
-import Display from "./components/Display";
+
 import Show from "./components/Show";
-import NaviLoggedIn from "./components/NaviLoggedIn";
-import Navi from "./components/Navi";
-import Signup from "./components/auth/Signup";
-import Login from "./components/auth/Login";
+
 import { Button, Card } from "react-bootstrap";
 import Search from "./components/Search";
-
+import NaviLoggedIn from "./components/NaviLoggedIn";
 export const GlobalCtx = React.createContext(null);
 
 function App() {
+  const [equity, setEquity] = React.useState();
+  const [selectedEquity, setSelectedEquity] = React.useState("");
+
+  const selectEquity = (equity) => {
+    setSelectedEquity(equity);
+  };
+
   return (
     <div className="App">
       <NaviLoggedIn />
       <main>
         <Switch>
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/login" exact component={Login} />
-          <Route exact path="/" render={(rp) => <Search {...rp} />} />
+          <Route
+            exact
+            path="/"
+            render={(rp) => (
+              <Search
+                {...rp}
+                selectEquity={selectEquity}
+                selectedEquity={selectedEquity}
+              />
+            )}
+          />
 
-          <Route exact path="/show" render={(rp) => <Show {...rp} />} />
+          <Route
+            exact
+            path="/show"
+            render={(rp) => <Show {...rp} ticker={selectedEquity} />}
+          />
         </Switch>
       </main>
     </div>
