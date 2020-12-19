@@ -10,8 +10,8 @@ import NaviLoggedIn from "./components/NaviLoggedIn";
 export const GlobalCtx = React.createContext(null);
 
 function App() {
-  const [equity, setEquity] = React.useState();
-  const [selectedEquity, setSelectedEquity] = React.useState("");
+  //const [equity, setEquity] = React.useState();
+  const [selectedEquity, setSelectedEquity] = React.useState({});
 
   const selectEquity = (equity) => {
     setSelectedEquity(equity);
@@ -37,7 +37,7 @@ function App() {
           <Route
             exact
             path="/show"
-            render={(rp) => <Show {...rp} ticker={selectedEquity} />}
+            render={(rp) => <Show {...rp} selectedEquity={selectedEquity} />}
           />
         </Switch>
       </main>
