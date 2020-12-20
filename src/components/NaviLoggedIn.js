@@ -7,9 +7,9 @@ const NaviLoggedIn = ({ history }) => {
   //const { gState, setgState } = React.useContext(GlobalCtx);
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" variant="dark">
+      <Navbar collapseOnSelect expand="sm" variant="light">
         <Navbar.Brand href="/">
-          <ion-icon name="book"></ion-icon>Intrspect
+          <ion-icon name="rocket"></ion-icon>Levels
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -19,7 +19,7 @@ const NaviLoggedIn = ({ history }) => {
             style={{ marginRight: "75px" }}
           >
             <Nav.Item>
-              <Nav.Link href="/calendar">Calendar</Nav.Link>
+              <Nav.Link href="/search">Search</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/">Timeline</Nav.Link>
