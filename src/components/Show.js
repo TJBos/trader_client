@@ -3,7 +3,6 @@ import { Button, Card, Form } from "react-bootstrap";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { URL } from "../App.js";
 const { API_KEY } = process.env;
-//const URL = "http://localhost:5000/holdings";
 
 const Show = (props) => {
   const { selectedEquity } = props;
@@ -30,7 +29,7 @@ const Show = (props) => {
       dollarValue: dollars,
     };
 
-    fetch(URL, {
+    fetch(URL + "holdings", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
