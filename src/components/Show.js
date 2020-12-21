@@ -11,7 +11,8 @@ const Show = (props) => {
 
   const getQuote = () => {
     fetch(
-      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${selectedEquity}&apikey=${API_KEY}`
+      //`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${selectedEquity}&apikey=${API_KEY}`
+      URL + `quote/${selectedEquity}`
     )
       .then((response) => response.json())
       .then((data) => setQuote(data["Global Quote"]));

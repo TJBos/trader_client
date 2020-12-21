@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { URL } from "../App.js";
-const { API_KEY } = process.env;
 
 //make a nice autocomplete form out of this!!
 
@@ -21,10 +20,7 @@ const Search = (props) => {
   const handleChange = (event) => {
     setFormData(event.target.value);
     const keyword = event.target.value;
-    fetch(
-      //`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${API_KEY}`
-      URL + `search/${keyword}`
-    )
+    fetch(URL + `search/${keyword}`)
       .then((response) => response.json())
       .then((data) => {
         setResults(data.results.bestMatches);
