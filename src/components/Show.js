@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { URL } from "../App.js";
-const { API_KEY } = process.env;
 
 const Show = (props) => {
   const { selectedEquity } = props;
@@ -10,10 +9,7 @@ const Show = (props) => {
   const [formData, setformData] = React.useState(0);
 
   const getQuote = () => {
-    fetch(
-      //`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${selectedEquity}&apikey=${API_KEY}`
-      URL + `quote/${selectedEquity}`
-    )
+    fetch(URL + `quote/${selectedEquity}`)
       .then((response) => response.json())
       .then((data) => setQuote(data["Global Quote"]));
   };
