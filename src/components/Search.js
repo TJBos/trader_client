@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, ListGroup } from "react-bootstrap";
 import { URL } from "../App.js";
+import "./search.css";
 
 //make a nice autocomplete form out of this!!
 
@@ -29,25 +30,30 @@ const Search = (props) => {
   };
 
   const displayResults = (list) => {
-    return list.map((item) => {
-      const descript = `${item["1. symbol"]} - ${item["2. name"]}`;
-      return (
-        <div
-          style={{ border: "black 1px solid" }}
-          onClick={() => {
-            setFormData(descript);
-            props.selectEquity(item["1. symbol"]);
-          }}
-        >
-          {descript}
-        </div>
-      );
-    });
+    return (
+      <ListGroup variant="flush">
+        {list.map((item) => {
+          const descript = `${item["1. symbol"]} - ${item["2. name"]}`;
+          return (
+            <a className="result-item">
+              <ListGroup.Item
+                onClick={() => {
+                  setFormData(descript);
+                  props.selectEquity(item["1. symbol"]);
+                }}
+              >
+                {descript}
+              </ListGroup.Item>{" "}
+            </a>
+          );
+        })}
+      </ListGroup>
+    );
   };
 
   return (
     <>
-      <h1>Search</h1>
+      <h3>Search by ticker or company</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Control
@@ -59,12 +65,11 @@ const Search = (props) => {
           />
         </Form.Group>
 
-        <Button variant="secondary" type="submit">
-          Submit
+        <Button variant="info" type="submit">
+          Go!
         </Button>
       </Form>
-      <h1>Results</h1>
-      {results && displayResults(results)}
+      <div className="results">{results && displayResults(results)}</div>
     </>
   );
 };

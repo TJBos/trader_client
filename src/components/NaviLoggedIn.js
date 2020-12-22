@@ -7,9 +7,9 @@ const NaviLoggedIn = ({ history }) => {
   //const { gState, setgState } = React.useContext(GlobalCtx);
   return (
     <>
-      <Navbar collapseOnSelect expand="sm" variant="light">
-        <Navbar.Brand href="/">
-          <ion-icon name="rocket"></ion-icon>Levels
+      <Navbar collapseOnSelect expand="sm">
+        <Navbar.Brand href="/" style={{ color: "#17a2b8", fontSize: "1.5em" }}>
+          <ion-icon name="rocket"></ion-icon>LEVELS
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -19,13 +19,23 @@ const NaviLoggedIn = ({ history }) => {
             style={{ marginRight: "75px" }}
           >
             <Nav.Item>
-              <Nav.Link href="/search">Search</Nav.Link>
+              <Nav.Link href="/" style={{ color: "#17a2b8" }}>
+                Portfolio
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/">Timeline</Nav.Link>
+              <Nav.Link href="/search" style={{ color: "#17a2b8" }}>
+                Search
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/" style={{ color: "#17a2b8" }}>
+                Strategy
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link
+                style={{ color: "#17a2b8" }}
                 href="/"
                 onClick={() => {
                   //window.localStorage.removeItem("token");

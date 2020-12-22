@@ -1,0 +1,24 @@
+h3 {
+  text-align: left;
+}
+
+.result-item :hover {
+  background-color: #17a2b8;
+  color: white;
+  cursor: pointer;
+}
+
+.form-group {
+  width: 40%;
+}
+
+form {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.results {
+  width: 40%;
+}

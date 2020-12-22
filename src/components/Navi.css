@@ -1,18 +1,27 @@
 .navbar {
   background-color: orange;
-  color: darkslategray;
+  color: #17a2b8;
   z-index: 1;
   width: 100%;
   display: flex;
   margin-bottom: 25px;
 }
 
+.navbar-brand {
+  color: #17a2b8;
+  font-size: 1.5em;
+}
+
 .navi {
   width: 100%;
 }
 
-.link {
-  padding: 20px;
+.nav-item {
+  padding-left: 40px;
+  font-size: 1.25em;
+}
+.nav-link:hover {
+  color: white;
 }
 
 button:focus {
