@@ -3,6 +3,7 @@ import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import Display from "./components/Display";
 import Show from "./components/Show";
+import Strategy from "./components/Strategy";
 
 import { Button, Card } from "react-bootstrap";
 import Search from "./components/Search";
@@ -47,6 +48,17 @@ function App() {
             path="/search"
             render={(rp) => (
               <Search
+                {...rp}
+                selectEquity={selectEquity}
+                selectedEquity={selectedEquity}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/strategy"
+            render={(rp) => (
+              <Strategy
                 {...rp}
                 selectEquity={selectEquity}
                 selectedEquity={selectedEquity}

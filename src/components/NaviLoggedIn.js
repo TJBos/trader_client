@@ -29,7 +29,7 @@ const NaviLoggedIn = ({ history }) => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/" style={{ color: "#17a2b8" }}>
+              <Nav.Link href="/strategy" style={{ color: "#17a2b8" }}>
                 Strategy
               </Nav.Link>
             </Nav.Item>
