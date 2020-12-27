@@ -5,8 +5,10 @@ import { URL } from "../App.js";
 
 const Show = (props) => {
   const { selectedEquity } = props;
+  const { holdings } = props;
   const [quote, setQuote] = React.useState();
-  const [formData, setformData] = React.useState(0);
+  const [buyFormData, setBuyFormData] = React.useState(0);
+  const [sellFormData, setSellFormData] = React.useState(0);
 
   const getQuote = () => {
     fetch(URL + `quote/${selectedEquity}`)
@@ -16,13 +18,13 @@ const Show = (props) => {
 
   React.useEffect(() => getQuote(), []);
 
-  const handleSubmit = (event) => {
+  const handleBuySubmit = (event) => {
     console.log("submitted");
     event.preventDefault();
-    const dollars = formData * parseInt(quote["05. price"]);
+    const dollars = buyFormData * parseInt(quote["05. price"]);
     const holding = {
       ticker: selectedEquity,
-      shares: formData,
+      shares: buyFormData,
       dollarValue: dollars,
     };
 
@@ -37,8 +39,40 @@ const Show = (props) => {
     props.getHoldings();
   };
 
-  const handleChange = (event) => {
-    setformData(event.target.value);
+  const handleSellSubmit = (event) => {};
+
+  const handleBuyChange = (event) => {
+    setBuyFormData(event.target.value);
+  };
+
+  const handleSellChange = (event) => {
+    setSellFormData(event.target.value);
+  };
+
+  const determineHolding = () => {
+    if (holdings.some((item) => item.ticker == selectedEquity)) {
+      const sharesOwned = props.holdings.find(
+        (item) => item.ticker == selectedEquity
+      ).shares;
+      return (
+        <div className="sellbox">
+          Shares owned: {sharesOwned}
+          <Form onSubmit={handleSellSubmit}>
+            <Form.Control
+              name="shares"
+              type="number"
+              min={0}
+              max={sharesOwned}
+              placeholder="enter number shares to sell"
+              onChange={handleSellChange}
+            ></Form.Control>
+            <Button variant="primary" type="submit">
+              Sell
+            </Button>
+          </Form>
+        </div>
+      );
+    }
   };
 
   return (
@@ -46,20 +80,20 @@ const Show = (props) => {
       <div className="buybox">
         Share Price:
         {quote && quote["05. price"]}
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleBuySubmit}>
           <Form.Control
             name="shares"
             type="number"
             min={0}
-            placeholder="enter number shares"
-            onChange={handleChange}
+            placeholder="enter number shares to buy"
+            onChange={handleBuyChange}
           ></Form.Control>
           <Button variant="primary" type="submit">
             Buy
           </Button>
         </Form>
       </div>
-
+      {holdings && determineHolding()}
       <div className="trading-view">
         <TradingViewWidget
           symbol={`${selectedEquity}`}

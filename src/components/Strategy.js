@@ -1,5 +1,6 @@
 import React from "react";
 import { URL } from "../App.js";
+import { Button } from "react-bootstrap";
 
 const Strategy = () => {
   const [data, setData] = React.useState();
@@ -40,8 +41,19 @@ const Strategy = () => {
 
   return (
     <>
-      <h1>Strategy</h1>
-      {data && buildTable()}
+      <h3>Momentum Strategy</h3>
+      <p>
+        Pulls up a real time list of stocks from the SP500 ranked on a 'momentum
+        score', i.e. mean of returns in short and mid term periods.
+      </p>
+      <Button
+        variant="info"
+        onClick={() => {
+          buildTable();
+        }}
+      >
+        Generate momentum stocks
+      </Button>
     </>
   );
 };

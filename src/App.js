@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import Display from "./components/Display";
+import Display2 from "./components/Display2";
 import Show from "./components/Show";
 import Strategy from "./components/Strategy";
 
@@ -74,6 +75,7 @@ function App() {
                 {...rp}
                 selectedEquity={selectedEquity}
                 getHoldings={getHoldings}
+                holdings={holdings}
               />
             )}
           />
