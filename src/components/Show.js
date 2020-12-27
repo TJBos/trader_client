@@ -35,11 +35,37 @@ const Show = (props) => {
       },
       body: JSON.stringify(holding),
     });
-    props.history.push("/");
     props.getHoldings();
+    props.history.push("/");
   };
 
-  const handleSellSubmit = (event) => {};
+  const handleSellSubmit = (event) => {
+    event.preventDefault();
+    const sharesOwned = holdings.find((item) => item.ticker == selectedEquity)
+      .shares;
+    console.log("submitted");
+    const holding = {
+      ticker: selectedEquity,
+      shares: sharesOwned - sellFormData,
+      dollarValue: (sharesOwned - sellFormData) * parseInt(quote["05. price"]),
+    };
+    console.log(holding);
+
+    fetch(
+      URL +
+        "holdings" +
+        `/${holdings.find((item) => item.ticker == selectedEquity)._id}`,
+      {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(holding),
+      }
+    );
+    props.getHoldings();
+    props.history.push("/");
+  };
 
   const handleBuyChange = (event) => {
     setBuyFormData(event.target.value);
@@ -51,9 +77,8 @@ const Show = (props) => {
 
   const determineHolding = () => {
     if (holdings.some((item) => item.ticker == selectedEquity)) {
-      const sharesOwned = props.holdings.find(
-        (item) => item.ticker == selectedEquity
-      ).shares;
+      const sharesOwned = holdings.find((item) => item.ticker == selectedEquity)
+        .shares;
       return (
         <div className="sellbox">
           Shares owned: {sharesOwned}

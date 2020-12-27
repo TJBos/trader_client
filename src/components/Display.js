@@ -4,6 +4,9 @@ import rd3 from "react-d3-library";
 import { ResponsivePie } from "@nivo/pie";
 
 const Display = (props) => {
+  React.useEffect(() => {
+    props.getHoldings();
+  }, []);
   const { holdings } = props;
   const chartData = [];
   holdings &&

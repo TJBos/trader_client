@@ -41,6 +41,7 @@ function App() {
                 {...rp}
                 selectEquity={selectEquity}
                 holdings={holdings}
+                getHoldings={getHoldings}
               />
             )}
           />
