@@ -37,7 +37,7 @@ const Show = (props) => {
       body: JSON.stringify(holding),
     });
     props.getHoldings();
-    props.history.push("/");
+    props.history.push("/portfolio");
   };
 
   const handleSellSubmit = (event) => {
@@ -50,8 +50,6 @@ const Show = (props) => {
       shares: sharesOwned - sellFormData,
       dollarValue: (sharesOwned - sellFormData) * parseInt(quote["05. price"]),
     };
-    console.log(holding);
-
     fetch(
       URL +
         "holdings" +
@@ -65,7 +63,7 @@ const Show = (props) => {
       }
     );
     props.getHoldings();
-    props.history.push("/");
+    props.history.push("/portfolio");
   };
 
   const handleBuyChange = (event) => {
