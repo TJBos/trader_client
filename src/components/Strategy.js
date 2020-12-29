@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 
 const Strategy = () => {
   const [data, setData] = React.useState();
+  const [showTable, setShowTable] = React.useState(false);
 
   const getMomentum = () => {
     fetch(URL + "momentum/preload")
@@ -20,7 +21,7 @@ const Strategy = () => {
     const values = Object.values(data);
     values.splice(2, 1);
     return (
-      <div className="table">
+      <div className="table" style={{ marginTop: "30px" }}>
         <table>
           <tr>
             {keys.map((item) => (
@@ -49,11 +50,12 @@ const Strategy = () => {
       <Button
         variant="info"
         onClick={() => {
-          buildTable();
+          setShowTable(true);
         }}
       >
         Generate momentum stocks
       </Button>
+      {showTable ? buildTable() : null}
     </>
   );
 };

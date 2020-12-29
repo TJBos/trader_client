@@ -10,7 +10,7 @@ import { Button, Card } from "react-bootstrap";
 import Search from "./components/Search";
 import NaviLoggedIn from "./components/NaviLoggedIn";
 export const GlobalCtx = React.createContext(null);
-export const URL = "http://localhost:5000/";
+export const URL = "https://levels-api.herokuapp.com/";
 
 function App() {
   const [holdings, setHoldings] = React.useState();
