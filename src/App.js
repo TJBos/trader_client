@@ -2,15 +2,14 @@ import "./App.css";
 import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import Display from "./components/Display";
-import Display2 from "./components/Display2";
 import Show from "./components/Show";
 import Strategy from "./components/Strategy";
-
+import Home from "./components/Home";
 import { Button, Card } from "react-bootstrap";
 import Search from "./components/Search";
 import NaviLoggedIn from "./components/NaviLoggedIn";
 export const GlobalCtx = React.createContext(null);
-export const URL = "https://levels-api.herokuapp.com/";
+export const URL = "http://localhost:5000/";
 
 function App() {
   const [holdings, setHoldings] = React.useState();
@@ -33,9 +32,10 @@ function App() {
       <NaviLoggedIn />
       <main>
         <Switch>
+          <Route exact path="/" render={() => <Home />} />
           <Route
             exact
-            path="/"
+            path="/portfolio"
             render={(rp) => (
               <Display
                 {...rp}

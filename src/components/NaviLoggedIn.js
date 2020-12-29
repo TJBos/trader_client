@@ -19,7 +19,7 @@ const NaviLoggedIn = ({ history }) => {
             style={{ marginRight: "75px" }}
           >
             <Nav.Item>
-              <Nav.Link href="/" style={{ color: "#17a2b8" }}>
+              <Nav.Link href="/portfolio" style={{ color: "#17a2b8" }}>
                 Portfolio
               </Nav.Link>
             </Nav.Item>
@@ -34,6 +34,11 @@ const NaviLoggedIn = ({ history }) => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
+              <Nav.Link href="#" style={{ color: "#17a2b8" }}>
+                TradingBot
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
               <Nav.Link
                 style={{ color: "#17a2b8" }}
                 href="/"
@@ -42,12 +47,12 @@ const NaviLoggedIn = ({ history }) => {
                   //setgState({ ...gState, token: false, user: null });
                 }}
               >
-                Logout
+                Login
               </Nav.Link>
             </Nav.Item>
           </Nav>
           <Nav className="justify-content-end">
-            <Navbar.Text>User</Navbar.Text>
+            <Navbar.Text></Navbar.Text>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

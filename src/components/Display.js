@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import rd3 from "react-d3-library";
 import { ResponsivePie } from "@nivo/pie";
+import "./display.css";
 
 const Display = (props) => {
   React.useEffect(() => {
@@ -26,13 +27,9 @@ const Display = (props) => {
   };
 
   return (
-    <>
-      <div
-        className="portfolio"
-        style={{ border: "1px solid black", width: "40%" }}
-      >
-        Portfolio Value ={" "}
-        <span style={{ fontWeight: "bold", color: "cyan" }}>{"$" + total}</span>
+    <div className="display">
+      <div className="portfolio">
+        Portfolio Value: <span style={{ color: "cyan" }}>{"$" + total}</span>
       </div>
       <div style={{ textAlign: "center", height: "400px" }}>
         <ResponsivePie
@@ -97,7 +94,7 @@ const Display = (props) => {
           ]}
         />
       </div>
-    </>
+    </div>
   );
 };
 

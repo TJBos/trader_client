@@ -1,0 +1,25 @@
+img {
+  width: 400px;
+  padding-top: 50px;
+}
+
+.home {
+  display: flex;
+  margin-top: 30px;
+}
+
+.home p {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.hero {
+  text-align: left;
+  background-color: #fcc981;
+  width: 50%;
+}
+
+.hero .btn {
+  margin-top: 30px;
+  border-radius: 10px;
+}

@@ -1,0 +1,31 @@
+.display {
+  background-color: #fcc981;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio {
+  width: 40%;
+  padding-top: 30px;
+  font-size: 2em;
+  background-color: white;
+}
+
+.span {
+  color: orange;
+  padding-left: 10px;
+  font-size: 1.2em;
+}
+
+.trading-view {
+  margin-top: 30px;
+}
+
+.form-box {
+  width: 35%;
+  margin: 0 auto;
+}
+
+.buybox {
+  margin-top: 25px;
+}

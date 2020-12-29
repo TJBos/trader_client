@@ -1,10 +1,9 @@
 .navbar {
-  background-color: orange;
+  background-color: white;
   color: #17a2b8;
   z-index: 1;
   width: 100%;
   display: flex;
-  margin-bottom: 25px;
 }
 
 .navbar-brand {

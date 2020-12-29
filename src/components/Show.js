@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { URL } from "../App.js";
+import "./display.css";
 
 const Show = (props) => {
   const { selectedEquity } = props;
@@ -81,20 +82,22 @@ const Show = (props) => {
         .shares;
       return (
         <div className="sellbox">
-          Shares owned: {sharesOwned}
-          <Form onSubmit={handleSellSubmit}>
-            <Form.Control
-              name="shares"
-              type="number"
-              min={0}
-              max={sharesOwned}
-              placeholder="enter number shares to sell"
-              onChange={handleSellChange}
-            ></Form.Control>
-            <Button variant="primary" type="submit">
-              Sell
-            </Button>
-          </Form>
+          Shares owned: <span className="span">{sharesOwned}</span>
+          <div className="form-box">
+            <Form onSubmit={handleSellSubmit}>
+              <Form.Control
+                name="shares"
+                type="number"
+                min={0}
+                max={sharesOwned}
+                placeholder="enter number shares to sell"
+                onChange={handleSellChange}
+              ></Form.Control>
+              <Button variant="info" type="submit">
+                Sell
+              </Button>
+            </Form>
+          </div>
         </div>
       );
     }
@@ -104,19 +107,21 @@ const Show = (props) => {
     <>
       <div className="buybox">
         Share Price:
-        {quote && quote["05. price"]}
-        <Form onSubmit={handleBuySubmit}>
-          <Form.Control
-            name="shares"
-            type="number"
-            min={0}
-            placeholder="enter number shares to buy"
-            onChange={handleBuyChange}
-          ></Form.Control>
-          <Button variant="primary" type="submit">
-            Buy
-          </Button>
-        </Form>
+        <span className="span">{quote && quote["05. price"]}</span>
+        <div className="form-box">
+          <Form onSubmit={handleBuySubmit}>
+            <Form.Control
+              name="shares"
+              type="number"
+              min={0}
+              placeholder="enter number shares to buy"
+              onChange={handleBuyChange}
+            ></Form.Control>
+            <Button variant="info" type="submit">
+              Buy
+            </Button>
+          </Form>
+        </div>
       </div>
       {holdings && determineHolding()}
       <div className="trading-view">
