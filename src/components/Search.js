@@ -3,8 +3,6 @@ import { Form, Button, ListGroup } from "react-bootstrap";
 import { URL } from "../App.js";
 import "./search.css";
 
-//make a nice autocomplete form out of this!!
-
 const Search = (props) => {
   const [formData, setFormData] = React.useState("");
   const [results, setResults] = React.useState();
