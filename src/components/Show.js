@@ -36,8 +36,8 @@ const Show = (props) => {
       },
       body: JSON.stringify(holding),
     });
-    props.getHoldings();
     props.history.push("/portfolio");
+    props.getHoldings();
   };
 
   const handleSellSubmit = (event) => {
@@ -62,8 +62,8 @@ const Show = (props) => {
         body: JSON.stringify(holding),
       }
     );
-    props.getHoldings();
     props.history.push("/portfolio");
+    props.getHoldings();
   };
 
   const handleBuyChange = (event) => {

@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import { Button, Card } from "react-bootstrap";
 import Search from "./components/Search";
 import NaviLoggedIn from "./components/NaviLoggedIn";
+import TradingBot from "./components/tradingbot";
 export const GlobalCtx = React.createContext(null);
 export const URL = "https://levels-api.herokuapp.com/";
 
@@ -67,6 +68,7 @@ function App() {
               />
             )}
           />
+          <Route exact path="/tradingbot" render={() => <TradingBot />} />
 
           <Route
             exact

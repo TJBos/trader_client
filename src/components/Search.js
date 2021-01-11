@@ -56,6 +56,7 @@ const Search = (props) => {
         <Form.Group>
           <Form.Control
             type="text"
+            autocomplete="off"
             placeholder="Enter search term"
             name="search"
             value={formData}

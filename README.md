@@ -11,7 +11,7 @@ MERN: Node/Express backend with React frontend and MongoDB. Redux used in React 
 ## Loose ends
 
 Refactored JWT auth with redux states, not finished. Only have 1 strategy generator working, no variable selector implemented. Trading bot not finished. Want to implement portfolio classes with sunburst visualization. Want to use AWS for deployment and use Docker.
-Styling and UX is sloppy. Want to try sockets.io to create live streams of data (trading).
+Styling and UX is sloppy. Want to try sockets.io to create live streams of data (trading). Will probably migrate to Flask, or use 2nd backend to run all .py scripts and serve to front end.
 
 ## Challenges
 

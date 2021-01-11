@@ -29,7 +29,10 @@ const Display = (props) => {
   return (
     <div className="display">
       <div className="portfolio">
-        Portfolio Value: <span style={{ color: "cyan" }}>{"$" + total}</span>
+        Portfolio Value:{" "}
+        <span style={{ color: "cyan" }}>
+          {"$" + total.toLocaleString("en")}
+        </span>
       </div>
       <div style={{ textAlign: "center", height: "400px" }}>
         <ResponsivePie
