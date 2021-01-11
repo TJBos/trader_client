@@ -29,3 +29,7 @@ several external API's
 ## Live link
 
 https://levelstradingapp.herokuapp.com
+
+## Backend server repo
+
+https://github.com/TJBos/trader_api
